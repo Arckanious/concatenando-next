@@ -6,6 +6,32 @@ export default createGlobalStyle`
   margin:0;
   vertical-align:baseline;
   list-style:none;
-  border:0
+  border:0;
   }
+
+  html{
+    font-size: 62.5%;
+  }
+
+  body{
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background-image: linear-gradient(to bottom left, ${props =>
+      props.theme.colors.primary},
+      ${props => props.theme.colors.secondary} 140%);
+  }
+
+  @keyframes bounce{
+    0%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(-8px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+  }
+
 `
