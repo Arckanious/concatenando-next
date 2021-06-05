@@ -5,11 +5,11 @@ import {
   Description,
   FormTitle,
   ImgEmail,
-  LoadButon,
   Separator
-} from '../../styles/components/main'
-import Card from './card'
-import Form from './form'
+} from './styles'
+import Button from '../button'
+import Card from '../card'
+import Form from '../form'
 import imgEmailFile from '../../assets/imgEmail.svg'
 
 const Main: React.FC = () => {
@@ -24,7 +24,7 @@ const Main: React.FC = () => {
         <Card />
         <Card />
       </CardContainer>
-      <LoadButon>Carregar Mais</LoadButon>
+      <Button rounded>Carregar Mais</Button>
       <Separator />
       <ImgEmail src={imgEmailFile} />
       <FormTitle>Vamos conversar?</FormTitle>

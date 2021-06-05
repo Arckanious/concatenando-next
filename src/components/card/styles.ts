@@ -5,8 +5,7 @@ export const Container = styled.article`
   max-width: 350px;
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: ${props => props.theme.shadows.shadowMd};
   margin-bottom: 2.5rem;
   color: ${props => props.theme.colors.black};
 `

@@ -6,7 +6,7 @@ import {
   Container,
   ContainerText,
   Thumb
-} from '../../styles/components/card'
+} from './styles'
 
 const Card: React.FC = () => {
   return (

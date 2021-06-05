@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Container,
-  IconsContainer,
-  EmailText,
-  EmailIcon,
-  Icon
-} from '../../styles/components/footer'
+import { Container, IconsContainer, EmailText, EmailIcon, Icon } from './styles'
 import {
   faTwitch,
   faTwitter,

@@ -1,9 +1,5 @@
-import React, { useRef } from 'react'
-import {
-  Container,
-  TextFieldInput,
-  TextFieldPlaceHolder
-} from '../../styles/components/textField'
+import React, { useRef, useState } from 'react'
+import { Container, TextFieldInput, TextFieldPlaceHolder } from './styles'
 
 interface TextFieldProps {
   placeholder: string
@@ -11,16 +7,16 @@ interface TextFieldProps {
 
 const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const placeholderRef = useRef<HTMLParagraphElement>(null)
+  const [isEmpty, setIsEmpy] = useState(true)
+
   function onInputBlur() {
-    const isEmpty = !!inputRef.current?.value
-    placeholderRef.current?.classList.toggle('placeholderFocus', isEmpty)
+    setIsEmpy(!inputRef.current?.value)
   }
 
   return (
     <Container>
       <TextFieldInput ref={inputRef} onBlur={onInputBlur}></TextFieldInput>
-      <TextFieldPlaceHolder ref={placeholderRef}>
+      <TextFieldPlaceHolder isEmpty={isEmpty}>
         {props.placeholder}
       </TextFieldPlaceHolder>
     </Container>
