@@ -24,7 +24,6 @@ export const ArrowContainer = styled.div`
 
 export const BannerContainer = styled.div`
   color: ${props => props.theme.colors.white};
-  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
