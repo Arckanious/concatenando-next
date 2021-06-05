@@ -45,7 +45,6 @@ export const Title = styled.h1`
 `
 
 export const SubTitle = styled.h2`
-  max-width: 60vw;
   line-height: 2.8rem;
   font-size: 2rem;
   text-align: center;

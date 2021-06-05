@@ -20,7 +20,9 @@ const Banner: React.FC = () => {
       <ItensContainer>
         <Logo src={LogoImage} />
         <Title>Concatenando</Title>
-        <SubTitle>Ao vivo, todo domingo às 15h e segunda as 18h30</SubTitle>
+        <SubTitle>
+          Ao vivo <br /> Domingos às 15h <br /> Segundas às 18h30
+        </SubTitle>
         <Button rounded color="white">
           <IconButton icon={faTwitch} />
           Bora Concatenar!!!
