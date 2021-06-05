@@ -27,17 +27,11 @@ export const BannerContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-`
-
-export const ItensContainer = styled.div`
-  height: 100%;
-  max-height: 600px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 4.8rem 0;
 `
+
 export const Title = styled.h1`
   letter-spacing: 0.8rem;
   font-size: 2.8rem;

@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   IconButton,
-  ItensContainer,
   Title,
   Logo,
   SubTitle,
@@ -17,20 +16,18 @@ import Button from '../button'
 const Banner: React.FC = () => {
   return (
     <BannerContainer>
-      <ItensContainer>
-        <Logo src={LogoImage} />
-        <Title>Concatenando</Title>
-        <SubTitle>
-          Ao vivo <br /> Domingos às 15h <br /> Segundas às 18h30
-        </SubTitle>
-        <Button rounded color="white">
-          <IconButton icon={faTwitch} />
-          Bora Concatenar!!!
-        </Button>
-        <ArrowContainer>
-          <Arrow icon={faChevronDown} />
-        </ArrowContainer>
-      </ItensContainer>
+      <Logo src={LogoImage} />
+      <Title>Concatenando</Title>
+      <SubTitle>
+        Ao vivo <br /> Domingos às 15h <br /> Segundas às 18h30
+      </SubTitle>
+      <Button rounded color="white">
+        <IconButton icon={faTwitch} />
+        Bora Concatenar!!!
+      </Button>
+      <ArrowContainer>
+        <Arrow icon={faChevronDown} />
+      </ArrowContainer>
     </BannerContainer>
   )
 }

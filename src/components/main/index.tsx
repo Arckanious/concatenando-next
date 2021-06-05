@@ -24,7 +24,7 @@ const Main: React.FC = () => {
         <Card />
         <Card />
       </CardContainer>
-      <Button rounded>Carregar Mais</Button>
+      <Button rounded>Mostrar Mais</Button>
       <Separator />
       <ImgEmail src={imgEmailFile} />
       <FormTitle>Vamos conversar?</FormTitle>
