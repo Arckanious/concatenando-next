@@ -7,6 +7,7 @@ export default createGlobalStyle`
   vertical-align:baseline;
   list-style:none;
   border:0;
+  box-sizing: border-box;
   }
 
   html{
@@ -16,7 +17,6 @@ export default createGlobalStyle`
   body{
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
-    height: 100vh;
     background-image: linear-gradient(to bottom left, ${props =>
       props.theme.colors.primary},
       ${props => props.theme.colors.secondary} 140%);
@@ -32,6 +32,10 @@ export default createGlobalStyle`
     100%{
       transform: translateY(0px);
     }
+  }
+
+  .placeholderFocus {
+    top: 0;
   }
 
 `
