@@ -39,14 +39,6 @@ export const Separator = styled.div`
   width: 60%;
 `
 
-export const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  text-align: left;
-  width: 100%;
-  justify-content: center;
-`
-
 export const ListItemContainer = styled.div`
   display: flex;
   align-items: center;

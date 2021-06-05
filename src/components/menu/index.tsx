@@ -4,7 +4,6 @@ import {
   Icon,
   Separator,
   IconImg,
-  ListItem,
   IconContainer,
   ListItemContainer
 } from './styles'
@@ -20,64 +19,55 @@ import simplecastIcon from '../../assets/simplecastIcon.svg'
 const Menu: React.FC = () => {
   return (
     <Container>
-      <ListItem>
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faMicrophoneAlt} />
-          </IconContainer>
-          Episódios
-        </ListItemContainer>
-      </ListItem>
+      <ListItemContainer>
+        <IconContainer>
+          <Icon icon={faMicrophoneAlt} />
+        </IconContainer>
+        Episódios
+      </ListItemContainer>
+
       <Separator />
 
-      <ListItem>
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faSpotify} />
-          </IconContainer>
-          Spotify
-        </ListItemContainer>
-      </ListItem>
+      <ListItemContainer>
+        <IconContainer>
+          <Icon icon={faSpotify} />
+        </IconContainer>
+        Spotify
+      </ListItemContainer>
+
       <Separator />
 
-      <ListItem>
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faApple} />
-          </IconContainer>
-          Apple
-        </ListItemContainer>
-      </ListItem>
+      <ListItemContainer>
+        <IconContainer>
+          <Icon icon={faApple} />
+        </IconContainer>
+        Apple
+      </ListItemContainer>
+
       <Separator />
 
-      <ListItem>
-        <ListItemContainer>
-          <IconContainer>
-            <IconImg src={simplecastIcon} />
-          </IconContainer>
-          Simplecast
-        </ListItemContainer>
-      </ListItem>
+      <ListItemContainer>
+        <IconContainer>
+          <IconImg src={simplecastIcon} />
+        </IconContainer>
+        Simplecast
+      </ListItemContainer>
+      <Separator />
+      <ListItemContainer>
+        <IconContainer>
+          <IconImg src={dezzerIcon} />
+        </IconContainer>
+        Dizzer
+      </ListItemContainer>
+
       <Separator />
 
-      <ListItem>
-        <ListItemContainer>
-          <IconContainer>
-            <IconImg src={dezzerIcon} />
-          </IconContainer>
-          Dizzer
-        </ListItemContainer>
-      </ListItem>
-      <Separator />
-
-      <ListItem>
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faAmazon} />
-          </IconContainer>
-          Amazon
-        </ListItemContainer>
-      </ListItem>
+      <ListItemContainer>
+        <IconContainer>
+          <Icon icon={faAmazon} />
+        </IconContainer>
+        Amazon
+      </ListItemContainer>
     </Container>
   )
 }

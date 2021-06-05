@@ -25,23 +25,16 @@ const Home: React.FC = () => {
     )
   }
 
-  function renderMain() {
-    return (
-      <>
-        <Banner />
-        <Header onClick={onMenuClicked} menuIcon={faBars} />
-        <Main />
-        <Footer />
-      </>
-    )
-  }
-
   return (
     <>
       <Head>
         <title>Concatenando</title>
       </Head>
-      {menuOpened ? renderMenu() : renderMain()}
+      {menuOpened ? renderMenu() : ''}
+      <Banner />
+      <Header onClick={onMenuClicked} menuIcon={faBars} />
+      <Main />
+      <Footer />
     </>
   )
 }

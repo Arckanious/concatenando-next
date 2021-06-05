@@ -17,9 +17,7 @@ export default createGlobalStyle`
   body{
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(to bottom left, ${props =>
-      props.theme.colors.primary},
-      ${props => props.theme.colors.secondary} 140%);
+    background-image: ${props => props.theme.colors.background};
   }
 
   @keyframes bounce{
