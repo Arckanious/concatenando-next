@@ -9,5 +9,13 @@ declare module 'styled-components' {
       black: string
       gray: string
     }
+    shadows: {
+      shadowSm: string
+      shadowMd: string
+      shadowLg: string
+      shadowTopSm: string
+      shadowTopMd: string
+      shadowTopLg: string
+    }
   }
 }

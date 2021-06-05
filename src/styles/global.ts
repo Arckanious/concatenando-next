@@ -33,9 +33,4 @@ export default createGlobalStyle`
       transform: translateY(0px);
     }
   }
-
-  .placeholderFocus {
-    top: 0;
-  }
-
 `

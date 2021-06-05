@@ -8,6 +8,8 @@ import Document, {
   NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { dom } from '@fortawesome/fontawesome-svg-core'
+import favicon from '../assets/favicon.ico'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -47,6 +49,8 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
             rel="stylesheet"
           />
+          <link rel="icon" type="image/ico" href={favicon} />
+          <style type="text/css">{dom.css()}</style>
         </Head>
 
         <body>

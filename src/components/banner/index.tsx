@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Button,
   IconButton,
   ItensContainer,
   Title,
@@ -9,10 +8,11 @@ import {
   Arrow,
   ArrowContainer,
   BannerContainer
-} from '../../styles/components/banner'
+} from './styles'
 import { faTwitch } from '@fortawesome/free-brands-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import LogoImage from '../../assets/icon.svg'
+import Button from '../button'
 
 const Banner: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const Banner: React.FC = () => {
         <Logo src={LogoImage} />
         <Title>Concatenando</Title>
         <SubTitle>Ao vivo, todo domingo às 15h e segunda as 18h30</SubTitle>
-        <Button>
+        <Button rounded color="white">
           <IconButton icon={faTwitch} />
           Bora Concatenar!!!
         </Button>

@@ -52,31 +52,3 @@ export const SubTitle = styled.h2`
   font-weight: 300;
   color: ${props => props.theme.colors.white};
 `
-
-export const Button = styled.button`
-  align-items: center;
-  color: ${props => props.theme.colors.black};
-  cursor: pointer;
-  display: flex;
-  user-select: none;
-  transition: 250ms;
-  outline: none;
-  height: 5.6rem;
-  border-radius: 2.8rem;
-  background-color: ${props => props.theme.colors.white};
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0px 2.8rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-
-  &:hover {
-    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-      0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  }
-
-  &:active {
-    transform: translateY(2px);
-  }
-`

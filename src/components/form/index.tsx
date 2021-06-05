@@ -1,10 +1,7 @@
 import React from 'react'
-import {
-  FormButtom,
-  FormerCointainer,
-  TextArea
-} from '../../styles/components/form'
-import TextField from './textField'
+import { FormerCointainer, TextArea } from './styles'
+import TextField from '../textField'
+import Button from '../button'
 
 const Form: React.FC = () => {
   return (
@@ -12,7 +9,7 @@ const Form: React.FC = () => {
       <TextField placeholder="Nome" />
       <TextField placeholder="Email" />
       <TextArea placeholder="Escreva sua mensagem" />
-      <FormButtom> Enviar </FormButtom>
+      <Button full> Enviar </Button>
     </FormerCointainer>
   )
 }
