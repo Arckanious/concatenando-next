@@ -33,10 +33,12 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
   const [visible, setVisible] = useState(false)
 
   const openMenu = useCallback(() => {
+    document.body.style.overflow = 'hidden'
     setVisible(true)
   }, [])
 
   const closeMenu = useCallback(() => {
+    document.body.style.overflow = 'initial'
     setVisible(false)
   }, [])
 

@@ -9,13 +9,13 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Home: React.FC = () => {
   const [backgroundColored, setBackgroundColored] = useState(false)
-  const [height, setHeight] = useState(0)
+  let height = 0
   const menuRef = useRef<MenuHandles>(null)
 
   useEffect(() => {
-    setHeight(window.innerHeight)
+    height = window.innerHeight
     function listener() {
-      setHeight(window.innerHeight)
+      height = window.innerHeight
     }
     window.addEventListener('resize', listener)
     return () => {
