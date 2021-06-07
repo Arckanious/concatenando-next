@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Header from '../components/header'
-import Menu from '../components/menu'
+import Menu, { MenuHandles } from '../components/menu'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Card from '../components/card'
 import { Main } from '../styles/pages/episodios'
 import CardLoading from '../components/cardLoading'
 
 const Episodios: React.FC = () => {
-  const [menuOpened, setMenuOppened] = useState(false)
+  const menuRef = useRef<MenuHandles>(null)
   const [backgroundColored, setBackgroundColored] = useState(false)
 
-  function onMenuClicked() {
-    setMenuOppened(!menuOpened)
-    document.body.style.overflow = menuOpened ? 'initial' : 'hidden'
+  function menuOpen() {
+    menuRef.current?.openMenu()
   }
 
   useEffect(() => {
@@ -33,9 +32,9 @@ const Episodios: React.FC = () => {
       <Head>
         <title>Episodios</title>
       </Head>
-      <div>{menuOpened ? <Menu onClick={onMenuClicked} /> : null}</div>
+      <Menu ref={menuRef} />
       <Header
-        onClick={onMenuClicked}
+        onClick={menuOpen}
         menuIcon={faBars}
         backgroundColored={backgroundColored}
       />
