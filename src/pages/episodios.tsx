@@ -17,11 +17,15 @@ const Episodios: React.FC = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    function listener() {
       window.scrollY > 0
         ? setBackgroundColored(true)
         : setBackgroundColored(false)
-    })
+    }
+    window.addEventListener('scroll', listener)
+    return () => {
+      window.removeEventListener('scroll', listener)
+    }
   })
 
   return (
