@@ -1,4 +1,9 @@
-import React, { MouseEventHandler } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useState
+} from 'react'
 import {
   Container,
   Icon,
@@ -19,68 +24,93 @@ import simplecastIcon from '../../assets/simplecastIcon.svg'
 import Footer from '../footer'
 import Header from '../header'
 
-interface MenuProps {
-  onClick: MouseEventHandler
+export interface MenuHandles {
+  openMenu: () => void
+  closeMenu: () => void
 }
 
-const Menu: React.FC<MenuProps> = (props: MenuProps) => {
-  return (
-    <Container>
-      <Header onClick={props.onClick} menuIcon={faTimes} />
-      <List>
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faMicrophoneAlt} />
-          </IconContainer>
-          Episódios
-        </ListItemContainer>
+const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
+  const [visible, setVisible] = useState(false)
 
-        <Separator />
+  const openMenu = useCallback(() => {
+    setVisible(true)
+  }, [])
 
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faSpotify} />
-          </IconContainer>
-          Spotify
-        </ListItemContainer>
+  const closeMenu = useCallback(() => {
+    setVisible(false)
+  }, [])
 
-        <Separator />
+  useImperativeHandle(ref, () => {
+    return {
+      openMenu,
+      closeMenu
+    }
+  })
+  if (visible) {
+    return (
+      <Container>
+        <Header
+          onClick={closeMenu}
+          menuIcon={faTimes}
+          backgroundColored={false}
+        />
+        <List>
+          <ListItemContainer>
+            <IconContainer>
+              <Icon icon={faMicrophoneAlt} />
+            </IconContainer>
+            Episódios
+          </ListItemContainer>
 
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faApple} />
-          </IconContainer>
-          Apple
-        </ListItemContainer>
+          <Separator />
 
-        <Separator />
+          <ListItemContainer>
+            <IconContainer>
+              <Icon icon={faSpotify} />
+            </IconContainer>
+            Spotify
+          </ListItemContainer>
 
-        <ListItemContainer>
-          <IconContainer>
-            <IconImg src={simplecastIcon} />
-          </IconContainer>
-          Simplecast
-        </ListItemContainer>
-        <Separator />
-        <ListItemContainer>
-          <IconContainer>
-            <IconImg src={dezzerIcon} />
-          </IconContainer>
-          Dizzer
-        </ListItemContainer>
+          <Separator />
 
-        <Separator />
+          <ListItemContainer>
+            <IconContainer>
+              <Icon icon={faApple} />
+            </IconContainer>
+            Apple
+          </ListItemContainer>
 
-        <ListItemContainer>
-          <IconContainer>
-            <Icon icon={faAmazon} />
-          </IconContainer>
-          Amazon
-        </ListItemContainer>
-      </List>
-      <Footer />
-    </Container>
-  )
+          <Separator />
+
+          <ListItemContainer>
+            <IconContainer>
+              <IconImg src={simplecastIcon} />
+            </IconContainer>
+            Simplecast
+          </ListItemContainer>
+          <Separator />
+          <ListItemContainer>
+            <IconContainer>
+              <IconImg src={dezzerIcon} />
+            </IconContainer>
+            Dizzer
+          </ListItemContainer>
+
+          <Separator />
+
+          <ListItemContainer>
+            <IconContainer>
+              <Icon icon={faAmazon} />
+            </IconContainer>
+            Amazon
+          </ListItemContainer>
+        </List>
+        <Footer />
+      </Container>
+    )
+  } else {
+    return null
+  }
 }
 
-export default Menu
+export default forwardRef(Menu)

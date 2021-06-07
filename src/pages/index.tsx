@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Banner from '../components/banner'
 import Main from '../components/main'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Menu from '../components/menu'
+import Menu, { MenuHandles } from '../components/menu'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Home: React.FC = () => {
-  const [menuOpened, setMenuOppened] = useState(false)
   const [backgroundColored, setBackgroundColored] = useState(false)
   const [height, setHeight] = useState(0)
-
-  function onMenuClicked() {
-    setMenuOppened(!menuOpened)
-    document.body.style.overflow = menuOpened ? 'initial' : 'hidden'
-  }
+  const menuRef = useRef<MenuHandles>(null)
 
   useEffect(() => {
     setHeight(window.innerHeight)
@@ -40,15 +35,19 @@ const Home: React.FC = () => {
     }
   }, [height])
 
+  function openMenu() {
+    menuRef.current?.openMenu()
+  }
+
   return (
     <>
       <Head>
         <title>Concatenando</title>
       </Head>
-      {menuOpened ? <Menu onClick={onMenuClicked} /> : null}
+      <Menu ref={menuRef} />
       <Banner />
       <Header
-        onClick={onMenuClicked}
+        onClick={openMenu}
         menuIcon={faBars}
         backgroundColored={backgroundColored}
       />
