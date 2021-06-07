@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import {
   IconButton,
   Title,
@@ -13,7 +13,11 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import LogoImage from '../../assets/icon.svg'
 import Button from '../button'
 
-const Banner: React.FC = () => {
+interface BannerProps {
+  onClick: MouseEventHandler
+}
+
+const Banner: React.FC<BannerProps> = (props: BannerProps) => {
   return (
     <BannerContainer>
       <Logo src={LogoImage} />
@@ -25,7 +29,7 @@ const Banner: React.FC = () => {
         <IconButton icon={faTwitch} />
         Bora Concatenar!!!
       </Button>
-      <ArrowContainer>
+      <ArrowContainer onClick={props.onClick}>
         <Arrow icon={faChevronDown} />
       </ArrowContainer>
     </BannerContainer>

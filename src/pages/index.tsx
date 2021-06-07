@@ -44,6 +44,15 @@ const Home: React.FC = () => {
     menuRef.current?.openMenu()
   }
 
+  function jumpBanner() {
+    console.log('puts')
+    scrollContainerRef.current?.scrollBy({
+      top: height,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <>
       <Head>
@@ -52,7 +61,7 @@ const Home: React.FC = () => {
       <Menu ref={menuRef} />
       <ScrollContainer ref={scrollContainerRef}>
         <ScrollItem>
-          <Banner />
+          <Banner onClick={jumpBanner} />
         </ScrollItem>
         <ScrollItem>
           <Header

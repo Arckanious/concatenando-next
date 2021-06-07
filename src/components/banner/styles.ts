@@ -12,10 +12,12 @@ export const IconButton = styled(FontAwesomeIcon)`
 `
 
 export const Arrow = styled(FontAwesomeIcon)`
+  color: ${props => props.theme.colors.white};
   font-size: 24px;
 `
 
-export const ArrowContainer = styled.div`
+export const ArrowContainer = styled.button`
+  background-color: transparent;
   cursor: pointer;
   &:hover ${Arrow} {
     animation: bounce 600ms infinite;
