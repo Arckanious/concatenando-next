@@ -8,7 +8,7 @@ export const Container = styled.div`
   color: ${props => props.theme.colors.white};
   font-size: 1.4rem;
   padding: 1.4rem;
-  height: 112px;
+  height: 11.2rem;
 `
 
 export const IconsContainer = styled.div`

@@ -8,9 +8,13 @@ interface HeaderProps {
   menuIcon: IconDefinition
 }
 
+interface HeaderProps {
+  backgroundColored: boolean
+}
+
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   return (
-    <Container>
+    <Container backgroundColored={props.backgroundColored}>
       <Logo src={logoImg} />
       <MenuButton onClick={props.onClick}>
         <MenuIcon icon={props.menuIcon} />

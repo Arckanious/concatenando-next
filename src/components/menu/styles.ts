@@ -1,7 +1,18 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Container = styled.ul`
+export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: ${props => props.theme.colors.background};
+  z-index: 10;
+`
+
+export const List = styled.ul`
   background-color: ${props => props.theme.colors.white};
   border-radius: 1.6rem;
   padding: 2rem 1.2rem;

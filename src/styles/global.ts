@@ -31,4 +31,10 @@ export default createGlobalStyle`
       transform: translateY(0px);
     }
   }
+
+  @keyframes is-pulsing{
+    to{
+      opacity: .35;
+    }
+  }
 `

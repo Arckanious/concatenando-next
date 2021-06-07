@@ -1,73 +1,84 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import {
   Container,
   Icon,
   Separator,
   IconImg,
   IconContainer,
-  ListItemContainer
+  ListItemContainer,
+  List
 } from './styles'
 import {
   faApple,
   faSpotify,
   faAmazon
 } from '@fortawesome/free-brands-svg-icons'
-import { faMicrophoneAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMicrophoneAlt, faTimes } from '@fortawesome/free-solid-svg-icons'
 import dezzerIcon from '../../assets/dizzerIcon.svg'
 import simplecastIcon from '../../assets/simplecastIcon.svg'
+import Footer from '../footer'
+import Header from '../header'
 
-const Menu: React.FC = () => {
+interface MenuProps {
+  onClick: MouseEventHandler
+}
+
+const Menu: React.FC<MenuProps> = (props: MenuProps) => {
   return (
     <Container>
-      <ListItemContainer>
-        <IconContainer>
-          <Icon icon={faMicrophoneAlt} />
-        </IconContainer>
-        Episódios
-      </ListItemContainer>
+      <Header onClick={props.onClick} menuIcon={faTimes} />
+      <List>
+        <ListItemContainer>
+          <IconContainer>
+            <Icon icon={faMicrophoneAlt} />
+          </IconContainer>
+          Episódios
+        </ListItemContainer>
 
-      <Separator />
+        <Separator />
 
-      <ListItemContainer>
-        <IconContainer>
-          <Icon icon={faSpotify} />
-        </IconContainer>
-        Spotify
-      </ListItemContainer>
+        <ListItemContainer>
+          <IconContainer>
+            <Icon icon={faSpotify} />
+          </IconContainer>
+          Spotify
+        </ListItemContainer>
 
-      <Separator />
+        <Separator />
 
-      <ListItemContainer>
-        <IconContainer>
-          <Icon icon={faApple} />
-        </IconContainer>
-        Apple
-      </ListItemContainer>
+        <ListItemContainer>
+          <IconContainer>
+            <Icon icon={faApple} />
+          </IconContainer>
+          Apple
+        </ListItemContainer>
 
-      <Separator />
+        <Separator />
 
-      <ListItemContainer>
-        <IconContainer>
-          <IconImg src={simplecastIcon} />
-        </IconContainer>
-        Simplecast
-      </ListItemContainer>
-      <Separator />
-      <ListItemContainer>
-        <IconContainer>
-          <IconImg src={dezzerIcon} />
-        </IconContainer>
-        Dizzer
-      </ListItemContainer>
+        <ListItemContainer>
+          <IconContainer>
+            <IconImg src={simplecastIcon} />
+          </IconContainer>
+          Simplecast
+        </ListItemContainer>
+        <Separator />
+        <ListItemContainer>
+          <IconContainer>
+            <IconImg src={dezzerIcon} />
+          </IconContainer>
+          Dizzer
+        </ListItemContainer>
 
-      <Separator />
+        <Separator />
 
-      <ListItemContainer>
-        <IconContainer>
-          <Icon icon={faAmazon} />
-        </IconContainer>
-        Amazon
-      </ListItemContainer>
+        <ListItemContainer>
+          <IconContainer>
+            <Icon icon={faAmazon} />
+          </IconContainer>
+          Amazon
+        </ListItemContainer>
+      </List>
+      <Footer />
     </Container>
   )
 }
