@@ -23,10 +23,15 @@ import dezzerIcon from '../../assets/dizzerIcon.svg'
 import simplecastIcon from '../../assets/simplecastIcon.svg'
 import Footer from '../footer'
 import Header from '../header'
+import Link from 'next/link'
 
 export interface MenuHandles {
   openMenu: () => void
   closeMenu: () => void
+}
+
+function goToLink(link: string) {
+  window.open(link)
 }
 
 const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
@@ -48,6 +53,7 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
       closeMenu
     }
   })
+
   if (visible) {
     return (
       <Container>
@@ -57,16 +63,22 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
           backgroundColored={false}
         />
         <List>
-          <ListItemContainer>
-            <IconContainer>
-              <Icon icon={faMicrophoneAlt} />
-            </IconContainer>
-            Episódios
-          </ListItemContainer>
+          <Link href="/episodios">
+            <ListItemContainer>
+              <IconContainer>
+                <Icon icon={faMicrophoneAlt} />
+              </IconContainer>
+              Episódios
+            </ListItemContainer>
+          </Link>
 
           <Separator />
 
-          <ListItemContainer>
+          <ListItemContainer
+            onClick={() =>
+              goToLink('https://open.spotify.com/show/7lHEaseAF5Lp2UPyqpH81l')
+            }
+          >
             <IconContainer>
               <Icon icon={faSpotify} />
             </IconContainer>
@@ -75,7 +87,13 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
 
           <Separator />
 
-          <ListItemContainer>
+          <ListItemContainer
+            onClick={() =>
+              goToLink(
+                'https://podcasts.apple.com/br/podcast/concatenando/id1536297575'
+              )
+            }
+          >
             <IconContainer>
               <Icon icon={faApple} />
             </IconContainer>
@@ -84,14 +102,22 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
 
           <Separator />
 
-          <ListItemContainer>
+          <ListItemContainer
+            onClick={() => goToLink('https://concatenando.simplecast.com/')}
+          >
             <IconContainer>
               <IconImg src={simplecastIcon} />
             </IconContainer>
             Simplecast
           </ListItemContainer>
+
           <Separator />
-          <ListItemContainer>
+
+          <ListItemContainer
+            onClick={() =>
+              goToLink('https://www.deezer.com/search/concatenando')
+            }
+          >
             <IconContainer>
               <IconImg src={dezzerIcon} />
             </IconContainer>
@@ -100,7 +126,13 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
 
           <Separator />
 
-          <ListItemContainer>
+          <ListItemContainer
+            onClick={() =>
+              goToLink(
+                'https://music.amazon.com.br/podcasts/83dab262-116b-4434-a445-5a57fe0515d4/Concatenando'
+              )
+            }
+          >
             <IconContainer>
               <Icon icon={faAmazon} />
             </IconContainer>
