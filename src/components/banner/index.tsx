@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { MouseEventHandler, useCallback } from 'react'
 import {
   IconButton,
   Title,
@@ -17,6 +17,10 @@ interface BannerProps {
   onClick: MouseEventHandler
 }
 
+function goToLink() {
+  window.open('https://www.twitch.tv/concatenando')
+}
+
 const Banner: React.FC<BannerProps> = (props: BannerProps) => {
   return (
     <BannerContainer>
@@ -25,7 +29,7 @@ const Banner: React.FC<BannerProps> = (props: BannerProps) => {
       <SubTitle>
         Ao vivo <br /> Domingos às 15h <br /> Segundas às 18h30
       </SubTitle>
-      <Button rounded color="white">
+      <Button rounded color="white" onClick={goToLink}>
         <IconButton icon={faTwitch} />
         Bora Concatenar!!!
       </Button>
