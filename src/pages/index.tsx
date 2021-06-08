@@ -6,17 +6,16 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import Menu, { MenuHandles } from '../components/menu'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { ScrollContainer, ScrollItem } from '../styles/pages/home'
 
 const Home: React.FC = () => {
-  let height = 0
+  const [height, setHeight] = useState(0)
   const [backgroundColored, setBackgroundColored] = useState(false)
   const menuRef = useRef<MenuHandles>(null)
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    height = window.innerHeight
+    setHeight(window.innerHeight)
     function listener() {
-      height = window.innerHeight
+      setHeight(window.innerHeight)
     }
     window.addEventListener('resize', listener)
     return () => {
@@ -26,17 +25,13 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     function listener() {
-      if (scrollContainerRef.current?.scrollTop === undefined) {
-        return null
-      } else {
-        scrollContainerRef.current?.scrollTop > height
-          ? setBackgroundColored(true)
-          : setBackgroundColored(false)
-      }
+      window.scrollY > height
+        ? setBackgroundColored(true)
+        : setBackgroundColored(false)
     }
-    scrollContainerRef.current?.addEventListener('scroll', listener)
+    window.addEventListener('scroll', listener)
     return () => {
-      scrollContainerRef.current?.removeEventListener('scroll', listener)
+      window.removeEventListener('scroll', listener)
     }
   }, [height])
 
@@ -45,7 +40,7 @@ const Home: React.FC = () => {
   }
 
   function jumpBanner() {
-    scrollContainerRef.current?.scrollBy({
+    window.scrollTo({
       top: height,
       left: 0,
       behavior: 'smooth'
@@ -58,20 +53,14 @@ const Home: React.FC = () => {
         <title>Concatenando</title>
       </Head>
       <Menu ref={menuRef} />
-      <ScrollContainer ref={scrollContainerRef}>
-        <ScrollItem>
-          <Banner onClick={jumpBanner} />
-        </ScrollItem>
-        <ScrollItem>
-          <Header
-            onClick={openMenu}
-            menuIcon={faBars}
-            backgroundColored={backgroundColored}
-          />
-          <Main />
-          <Footer />
-        </ScrollItem>
-      </ScrollContainer>
+      <Banner onClick={jumpBanner} />
+      <Header
+        onClick={openMenu}
+        menuIcon={faBars}
+        backgroundColored={backgroundColored}
+      />
+      <Main />
+      <Footer />
     </>
   )
 }
