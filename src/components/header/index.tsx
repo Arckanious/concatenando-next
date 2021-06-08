@@ -1,4 +1,5 @@
 import React, { MouseEventHandler } from 'react'
+import Link from 'next/link'
 import { Logo, Container, MenuIcon, MenuButton } from './styles'
 import logoImg from '../../assets/icon.svg'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
@@ -15,7 +16,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   return (
     <Container backgroundColored={props.backgroundColored}>
-      <Logo src={logoImg} />
+      <Link href="/">
+        <Logo src={logoImg} />
+      </Link>
       <MenuButton onClick={props.onClick}>
         <MenuIcon icon={props.menuIcon} />
       </MenuButton>

@@ -45,7 +45,6 @@ const Home: React.FC = () => {
   }
 
   function jumpBanner() {
-    console.log('puts')
     scrollContainerRef.current?.scrollBy({
       top: height,
       left: 0,
