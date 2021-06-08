@@ -24,18 +24,20 @@ import simplecastIcon from '../../assets/simplecastIcon.svg'
 import Footer from '../footer'
 import Header from '../header'
 import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 
 export interface MenuHandles {
   openMenu: () => void
   closeMenu: () => void
 }
 
-function goToLink(link: string) {
-  window.open(link)
-}
-
 const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
+  function goToLink(link: string) {
+    window.open(link)
+  }
+
   const [visible, setVisible] = useState(false)
+  const router = useRouter()
 
   const openMenu = useCallback(() => {
     document.body.style.overflow = 'hidden'
@@ -54,6 +56,11 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
     }
   })
 
+  function goToEpisodios() {
+    closeMenu()
+    router.push('/episodios')
+  }
+
   if (visible) {
     return (
       <Container>
@@ -63,14 +70,12 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
           backgroundColored={false}
         />
         <List>
-          <Link href="/episodios">
-            <ListItemContainer>
-              <IconContainer>
-                <Icon icon={faMicrophoneAlt} />
-              </IconContainer>
-              Episódios
-            </ListItemContainer>
-          </Link>
+          <ListItemContainer onClick={() => goToEpisodios()}>
+            <IconContainer>
+              <Icon icon={faMicrophoneAlt} />
+            </IconContainer>
+            Episódios
+          </ListItemContainer>
 
           <Separator />
 

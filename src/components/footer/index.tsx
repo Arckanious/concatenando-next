@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
         />
       </IconsContainer>
 
-      <EmailText>
+      <EmailText onClick={() => goToLink('mailto:contato@concatenando.com.br')}>
         <EmailIcon icon={faEnvelope} />
         contato@concatenando.com.br
       </EmailText>
