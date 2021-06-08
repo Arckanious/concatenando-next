@@ -7,6 +7,16 @@ declare module 'styled-components' {
       secondary: string
       white: string
       black: string
+      gray: string
+      background: string
+    }
+    shadows: {
+      shadowSm: string
+      shadowMd: string
+      shadowLg: string
+      shadowTopSm: string
+      shadowTopMd: string
+      shadowTopLg: string
     }
   }
 }
