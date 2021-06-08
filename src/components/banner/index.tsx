@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { MouseEventHandler, useCallback } from 'react'
 import {
   IconButton,
-  ItensContainer,
   Title,
   Logo,
   SubTitle,
@@ -14,21 +13,29 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import LogoImage from '../../assets/icon.svg'
 import Button from '../button'
 
-const Banner: React.FC = () => {
+interface BannerProps {
+  onClick: MouseEventHandler
+}
+
+function goToLink() {
+  window.open('https://www.twitch.tv/concatenando')
+}
+
+const Banner: React.FC<BannerProps> = (props: BannerProps) => {
   return (
     <BannerContainer>
-      <ItensContainer>
-        <Logo src={LogoImage} />
-        <Title>Concatenando</Title>
-        <SubTitle>Ao vivo, todo domingo às 15h e segunda as 18h30</SubTitle>
-        <Button rounded color="white">
-          <IconButton icon={faTwitch} />
-          Bora Concatenar!!!
-        </Button>
-        <ArrowContainer>
-          <Arrow icon={faChevronDown} />
-        </ArrowContainer>
-      </ItensContainer>
+      <Logo src={LogoImage} />
+      <Title>Concatenando</Title>
+      <SubTitle>
+        Ao vivo <br /> Domingos às 15h <br /> Segundas às 18h30
+      </SubTitle>
+      <Button rounded color="white" onClick={goToLink}>
+        <IconButton icon={faTwitch} />
+        Bora Concatenar!!!
+      </Button>
+      <ArrowContainer onClick={props.onClick}>
+        <Arrow icon={faChevronDown} />
+      </ArrowContainer>
     </BannerContainer>
   )
 }

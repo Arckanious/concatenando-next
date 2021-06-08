@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.main`
   background-color: ${props => props.theme.colors.white};
   border-radius: 1.6rem;
   padding: 2rem 1.2rem;

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import {
   CardContainer,
   Container,
@@ -24,7 +25,10 @@ const Main: React.FC = () => {
         <Card />
         <Card />
       </CardContainer>
-      <Button rounded>Carregar Mais</Button>
+      <Link href="/episodios">
+        <Button rounded>Mostrar Mais</Button>
+      </Link>
+
       <Separator />
       <ImgEmail src={imgEmailFile} />
       <FormTitle>Vamos conversar?</FormTitle>

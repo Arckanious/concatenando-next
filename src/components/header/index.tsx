@@ -1,13 +1,27 @@
-import React from 'react'
-import { Logo, Container, MenuIcon } from './styles'
+import React, { MouseEventHandler } from 'react'
+import Link from 'next/link'
+import { Logo, Container, MenuIcon, MenuButton } from './styles'
 import logoImg from '../../assets/icon.svg'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onClick: MouseEventHandler
+  menuIcon: IconDefinition
+}
+
+interface HeaderProps {
+  backgroundColored: boolean
+}
+
+const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   return (
-    <Container>
-      <Logo src={logoImg} />
-      <MenuIcon icon={faBars} />
+    <Container backgroundColored={props.backgroundColored}>
+      <Link href="/">
+        <Logo src={logoImg} />
+      </Link>
+      <MenuButton onClick={props.onClick}>
+        <MenuIcon icon={props.menuIcon} />
+      </MenuButton>
     </Container>
   )
 }
