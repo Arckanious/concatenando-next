@@ -1,9 +1,4 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useImperativeHandle,
-  useState
-} from 'react'
+import React, { useCallback, useState } from 'react'
 import {
   Container,
   Icon,
@@ -11,31 +6,31 @@ import {
   IconImg,
   IconContainer,
   ListItemContainer,
-  List
+  List,
+  MenuButton,
+  MenuIcon,
+  ModalHeader
 } from './styles'
 import {
-  faApple,
-  faSpotify,
-  faAmazon
-} from '@fortawesome/free-brands-svg-icons'
-import { faMicrophoneAlt, faTimes } from '@fortawesome/free-solid-svg-icons'
-import dezzerIcon from '../../assets/dizzerIcon.svg'
-import simplecastIcon from '../../assets/simplecastIcon.svg'
+  faBars,
+  faTimes,
+  IconDefinition
+} from '@fortawesome/free-solid-svg-icons'
 import Footer from '../footer'
-import Header from '../header'
-import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 
-export interface MenuHandles {
-  openMenu: () => void
-  closeMenu: () => void
+interface ListElement {
+  title: string
+  link: string
+  type: 'internal' | 'external'
+  icon: IconDefinition | string
 }
 
-const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
-  function goToLink(link: string) {
-    window.open(link)
-  }
+interface MenuProps {
+  elements: ListElement[]
+}
 
+const Menu: React.FC<MenuProps> = (props: MenuProps) => {
   const [visible, setVisible] = useState(false)
   const router = useRouter()
 
@@ -49,107 +44,67 @@ const Menu: React.ForwardRefRenderFunction<MenuHandles> = (props, ref) => {
     setVisible(false)
   }, [])
 
-  useImperativeHandle(ref, () => {
-    return {
-      openMenu,
-      closeMenu
-    }
-  })
-
-  function goToEpisodios() {
+  function goToPage(link: string) {
     closeMenu()
-    router.push('/episodios')
+    router.push(link)
   }
 
-  if (visible) {
-    return (
-      <Container>
-        <Header
-          onClick={closeMenu}
-          menuIcon={faTimes}
-          backgroundColored={false}
-        />
-        <List>
-          <ListItemContainer onClick={() => goToEpisodios()}>
-            <IconContainer>
-              <Icon icon={faMicrophoneAlt} />
-            </IconContainer>
-            Episódios
-          </ListItemContainer>
-
-          <Separator />
-
-          <ListItemContainer
-            onClick={() =>
-              goToLink('https://open.spotify.com/show/7lHEaseAF5Lp2UPyqpH81l')
-            }
-          >
-            <IconContainer>
-              <Icon icon={faSpotify} />
-            </IconContainer>
-            Spotify
-          </ListItemContainer>
-
-          <Separator />
-
-          <ListItemContainer
-            onClick={() =>
-              goToLink(
-                'https://podcasts.apple.com/br/podcast/concatenando/id1536297575'
-              )
-            }
-          >
-            <IconContainer>
-              <Icon icon={faApple} />
-            </IconContainer>
-            Apple
-          </ListItemContainer>
-
-          <Separator />
-
-          <ListItemContainer
-            onClick={() => goToLink('https://concatenando.simplecast.com/')}
-          >
-            <IconContainer>
-              <IconImg src={simplecastIcon} />
-            </IconContainer>
-            Simplecast
-          </ListItemContainer>
-
-          <Separator />
-
-          <ListItemContainer
-            onClick={() =>
-              goToLink('https://www.deezer.com/search/concatenando')
-            }
-          >
-            <IconContainer>
-              <IconImg src={dezzerIcon} />
-            </IconContainer>
-            Dizzer
-          </ListItemContainer>
-
-          <Separator />
-
-          <ListItemContainer
-            onClick={() =>
-              goToLink(
-                'https://music.amazon.com.br/podcasts/83dab262-116b-4434-a445-5a57fe0515d4/Concatenando'
-              )
-            }
-          >
-            <IconContainer>
-              <Icon icon={faAmazon} />
-            </IconContainer>
-            Amazon
-          </ListItemContainer>
-        </List>
-        <Footer />
-      </Container>
-    )
-  } else {
-    return null
+  function goToLink(link: string) {
+    window.open(link)
   }
+
+  function renderModal() {
+    if (visible) {
+      return (
+        <Container>
+          <ModalHeader>
+            <MenuButton onClick={closeMenu}>
+              <MenuIcon icon={faTimes} />
+            </MenuButton>
+          </ModalHeader>
+
+          <List>
+            {props.elements.map((element, index) => {
+              return (
+                <>
+                  <ListItemContainer
+                    key={element.title}
+                    onClick={() =>
+                      element.type === 'external'
+                        ? goToLink(element.link)
+                        : goToPage(element.link)
+                    }
+                  >
+                    <IconContainer>
+                      {typeof element.icon === 'string' ? (
+                        <IconImg src={element.icon} />
+                      ) : (
+                        <Icon icon={element.icon} />
+                      )}
+                    </IconContainer>
+                    {element.title}
+                  </ListItemContainer>
+                  {index < props.elements.length - 1 ? <Separator /> : null}
+                </>
+              )
+            })}
+          </List>
+          <Footer />
+        </Container>
+      )
+    } else {
+      return null
+    }
+  }
+
+  return (
+    <>
+      {renderModal()}
+      <MenuButton onClick={openMenu}>
+        <MenuIcon icon={faBars} />
+      </MenuButton>
+    </>
+  )
 }
 
-export default forwardRef(Menu)
+export default Menu

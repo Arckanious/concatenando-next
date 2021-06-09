@@ -2,13 +2,15 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Container = styled.div`
+  color: ${props => props.theme.colors.white};
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  color: ${props => props.theme.colors.white};
   font-size: 1.4rem;
-  padding: 1.4rem;
   height: 11.2rem;
+  justify-content: space-around;
+  margin: auto;
+  max-width: 980px;
+  padding: 1.4rem;
 `
 
 export const IconsContainer = styled.div`
@@ -17,10 +19,10 @@ export const IconsContainer = styled.div`
 `
 
 export const EmailText = styled.div`
-  text-align: center;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
 `
 
 export const Icon = styled(FontAwesomeIcon)`

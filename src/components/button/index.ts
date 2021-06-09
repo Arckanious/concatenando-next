@@ -7,28 +7,28 @@ export interface ButtonProps {
 }
 
 export default styled.button<ButtonProps>`
+  align-items: center;
+  background-color: ${props =>
+    props.theme.colors[props.color ? props.color : 'primary']};
+
+  border-radius: ${props => (props.rounded ? '2.8rem' : '0.4rem')};
+  box-shadow: ${props => props.theme.shadows.shadowSm};
   color: ${props =>
     props.color === 'white'
       ? props.theme.colors.black
       : props.theme.colors.white};
-  background-color: ${props =>
-    props.theme.colors[props.color ? props.color : 'primary']};
-
-  width: ${props => (props.full ? '100%' : 'auto')};
-  border-radius: ${props => (props.rounded ? '2.8rem' : '0.4rem')};
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  user-select: none;
-  transition: 250ms;
-  outline: none;
-  height: 5.6rem;
+  display: flex;
   font-size: 1.4rem;
   font-weight: bold;
-  text-transform: uppercase;
+  height: 5.6rem;
+  justify-content: center;
+  outline: none;
   padding: 0px 2.4rem;
-  box-shadow: ${props => props.theme.shadows.shadowSm};
+  text-transform: uppercase;
+  transition: 250ms;
+  user-select: none;
+  width: ${props => (props.full ? '100%' : 'auto')};
 
   &:hover {
     box-shadow: ${props => props.theme.shadows.shadowLg};

@@ -5,18 +5,18 @@ export const FormerCointainer = styled.form`
 `
 
 export const TextArea = styled.textarea`
-  width: 100%;
-  border: 2px solid rgba(15, 14, 14, 0.2);
   background-color: white;
+  border: 2px solid rgba(15, 14, 14, 0.2);
   border-radius: 0.4rem;
-  height: 16rem;
+  color: ${props => props.theme.colors.black};
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
-  color: ${props => props.theme.colors.black};
+  height: 16rem;
+  margin-bottom: 2rem;
+  outline: none;
   padding: 1.4rem;
   resize: none;
-  outline: none;
-  margin-bottom: 2rem;
+  width: 100%;
 
   &::placeholder {
     color: ${props => props.theme.colors.gray};
