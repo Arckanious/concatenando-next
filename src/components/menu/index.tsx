@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react'
+import Link from 'next/link'
 import {
   Container,
   Icon,
@@ -61,7 +62,9 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
       return (
         <Container>
           <ModalHeader>
-            <Logo src={logoImg} />
+            <Link href="/">
+              <Logo onClick={closeMenu} src={logoImg} />
+            </Link>
             <MenuButton onClick={closeMenu}>
               <MenuIcon icon={faTimes} />
             </MenuButton>
