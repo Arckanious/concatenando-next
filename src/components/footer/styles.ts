@@ -14,12 +14,14 @@ export const Container = styled.div`
 `
 
 export const IconsContainer = styled.div`
+  cursor: pointer;
   display: flex;
   justify-content: space-around;
 `
 
 export const EmailText = styled.div`
   align-items: center;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -30,5 +32,6 @@ export const Icon = styled(FontAwesomeIcon)`
 `
 
 export const EmailIcon = styled(FontAwesomeIcon)`
+  cursor: pointer;
   margin-right: 0.6rem;
 `

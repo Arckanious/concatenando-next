@@ -6,10 +6,12 @@ import {
   IconImg,
   IconContainer,
   ListItemContainer,
+  ListItemContentContainer,
   List,
   MenuButton,
   MenuIcon,
-  ModalHeader
+  ModalHeader,
+  Logo
 } from './styles'
 import {
   faBars,
@@ -18,6 +20,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../footer'
 import { useRouter } from 'next/dist/client/router'
+import logoImg from '../../assets/icon.svg'
 
 interface ListElement {
   title: string
@@ -58,6 +61,7 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
       return (
         <Container>
           <ModalHeader>
+            <Logo src={logoImg} />
             <MenuButton onClick={closeMenu}>
               <MenuIcon icon={faTimes} />
             </MenuButton>
@@ -66,9 +70,8 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
           <List>
             {props.elements.map((element, index) => {
               return (
-                <>
-                  <ListItemContainer
-                    key={element.title}
+                <ListItemContainer key={element.title}>
+                  <ListItemContentContainer
                     onClick={() =>
                       element.type === 'external'
                         ? goToLink(element.link)
@@ -83,9 +86,9 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
                       )}
                     </IconContainer>
                     {element.title}
-                  </ListItemContainer>
+                  </ListItemContentContainer>
                   {index < props.elements.length - 1 ? <Separator /> : null}
-                </>
+                </ListItemContainer>
               )
             })}
           </List>
