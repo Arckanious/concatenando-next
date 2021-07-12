@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Logo, Container, ContentContainer } from './styles'
 import logoImg from '../../assets/icon.svg'
-import { faMicrophoneAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMicrophoneAlt, faHome } from '@fortawesome/free-solid-svg-icons'
 import {
   faApple,
   faSpotify,
@@ -13,6 +13,7 @@ import dezzerIcon from '../../assets/dizzerIcon.svg'
 import simplecastIcon from '../../assets/simplecastIcon.svg'
 
 interface HeaderProps {
+  page: 'Home' | 'Episodios'
   backgroundColored: boolean
 }
 
@@ -26,10 +27,10 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
         <Menu
           elements={[
             {
-              title: 'Episódios',
-              link: '/episodios',
+              title: props.page === 'Home' ? 'Episódios' : 'Home',
+              link: props.page === 'Home' ? '/episodios' : '/',
               type: 'internal',
-              icon: faMicrophoneAlt
+              icon: props.page === 'Home' ? faMicrophoneAlt : faHome
             },
             {
               title: 'Spotify',

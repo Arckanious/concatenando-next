@@ -26,7 +26,7 @@ const Episodios: React.FC = () => {
       <Head>
         <title>Episodios</title>
       </Head>
-      <Header backgroundColored={backgroundColored} />
+      <Header page="Episodios" backgroundColored={backgroundColored} />
       <Main>
         <Card />
         <Card />

@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       </Head>
 
       <Banner onClick={jumpBanner} />
-      <Header backgroundColored={backgroundColored} />
+      <Header page="Home" backgroundColored={backgroundColored} />
       <Main />
       <Footer />
     </>
