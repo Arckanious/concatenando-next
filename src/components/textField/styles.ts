@@ -7,33 +7,33 @@ export interface TextFieldPlaceHolderProps {
 export const Container = styled.div`
   height: 5.6rem;
   position: relative;
-  margin-bottom: 1.2rem;
+  width: 100%;
 `
 
 export const TextFieldPlaceHolder = styled.p<TextFieldPlaceHolderProps>`
-  transition: 350ms;
-  position: absolute;
-  padding-left: 1.4rem;
-  font-size: ${props => (props.isEmpty ? '1.4rem' : '1.2rem')};
-  top: ${props => (props.isEmpty ? '2rem' : '0')};
   color: ${props => props.theme.colors.gray};
+  font-size: ${props => (props.isEmpty ? '1.4rem' : '1.2rem')};
+  padding-left: 1.4rem;
+  position: absolute;
+  top: ${props => (props.isEmpty ? '2rem' : '0')};
+  transition: 350ms;
 `
 
 export const TextFieldInput = styled.input`
-  width: 100%;
-  height: 100%;
-  padding-left: 1.4rem;
-  outline: none;
-  font-size: 1.4rem;
+  background-color: white;
+  border-bottom: 2px solid rgba(15, 14, 14, 0.2);
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
-  border-bottom: 2px solid rgba(15, 14, 14, 0.2);
-  background-color: white;
+  font-size: 1.4rem;
+  height: 100%;
+  outline: none;
+  padding-left: 1.4rem;
+  width: 100%;
 
   &:focus ~ ${TextFieldPlaceHolder} {
-    top: 0;
     color: ${props => props.theme.colors.primary};
     font-size: 1.2rem;
+    top: 0;
   }
 
   &:focus {

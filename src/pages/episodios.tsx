@@ -31,6 +31,9 @@ const Episodios: React.FC = () => {
         <Card />
         <Card />
         <Card />
+        <Card />
+        <Card />
+        <Card />
         <CardLoading />
         <CardLoading />
         <CardLoading />

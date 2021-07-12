@@ -11,6 +11,7 @@ export const Container = styled.main`
   margin: auto;
   max-width: 980px;
   padding: 2rem 1.2rem;
+  width: 100%;
 `
 export const Description = styled.p`
   font-size: 1.8rem;
@@ -26,9 +27,14 @@ export const Separator = styled.div`
 `
 
 export const CardContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-gap: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 2rem;
+
+  @media (min-width: 800px) {
+    padding: 0 4.8rem;
+  } ;
 `
 export const ImgEmail = styled.img`
   margin-bottom: 2rem;

@@ -17,8 +17,6 @@ const Card: React.FC = () => {
         <CardDescription>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
           temporibus nam facere quasi omnis consequatur illum quod veniam iste.
-          Eligendi perspiciatis unde quibusdam earum iusto laboriosam cum,
-          aliquid beatae quidem!
         </CardDescription>
         <CardData>01 de Mai de 2021</CardData>
       </ContainerText>

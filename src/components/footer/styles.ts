@@ -8,9 +8,9 @@ export const Container = styled.div`
   font-size: 1.4rem;
   height: 11.2rem;
   justify-content: space-around;
-  margin: auto;
+  margin: 0 auto;
   max-width: 980px;
-  padding: 1.4rem;
+  width: 100%;
 `
 
 export const IconsContainer = styled.div`

@@ -23,6 +23,7 @@ export const ContentContainer = styled.div`
   margin: auto;
   max-width: 980px;
   padding: 0rem 1.6rem;
+  width: 100%;
 `
 
 export const Logo = styled.img`
