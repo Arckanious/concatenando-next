@@ -98,20 +98,12 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
   }
 
   return (
-    <List>
-      {props.elements.map(element => {
-        return (
-          <ListItemContainer key={element.title}>
-            {typeof element.icon === 'string' ? (
-              <IconImg src={element.icon} />
-            ) : (
-              <Icon icon={element.icon} />
-            )}
-            {element.title}
-          </ListItemContainer>
-        )
-      })}
-    </List>
+    <>
+      {renderModal()}
+      <MenuButton onClick={openMenu}>
+        <MenuIcon icon={faBars} />
+      </MenuButton>
+    </>
   )
 }
 

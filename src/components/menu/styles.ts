@@ -23,8 +23,18 @@ export const Container = styled.div`
 `
 
 export const List = styled.ul`
-  color: ${props => props.theme.colors.white};
+  align-items: center;
+  background-color: ${props => props.theme.colors.white};
+  border-radius: 1.6rem;
+  box-shadow: ${props => props.theme.shadows.shadowTopMd},
+    ${props => props.theme.shadows.shadowMd};
   display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 1.2rem;
+  max-height: 65%;
+  padding: 2rem 1.2rem;
 `
 
 export const IconContainer = styled.div`
@@ -32,17 +42,15 @@ export const IconContainer = styled.div`
   display: flex;
   height: 24px;
   justify-content: center;
-  margin-right: 1.2rem;
+  margin-right: 1.4rem;
   width: 24px;
 `
 
 export const Icon = styled(FontAwesomeIcon)`
   font-size: 1.8rem;
-  margin-right: 0.5rem;
 `
 
 export const IconImg = styled.img`
-  margin-right: 0.5rem;
   width: 1.6rem;
 `
 
@@ -55,7 +63,6 @@ export const Separator = styled.div`
 export const ListItemContainer = styled.div`
   align-items: center;
   display: flex;
-  margin-right: 1.4rem;
   max-width: 120px;
   width: 50%;
 `
