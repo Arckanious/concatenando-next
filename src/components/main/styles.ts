@@ -39,6 +39,9 @@ export const CardContainer = styled.div`
 export const ImgEmail = styled.img`
   margin-bottom: 2rem;
   width: 200px;
+  @media (min-width: 500px) {
+    width: 400px;
+  }
 `
 export const FormTitle = styled.h4`
   color: ${props => props.theme.colors.black};
