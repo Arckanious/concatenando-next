@@ -19,7 +19,9 @@ const Main: React.FC = () => {
       <Description>Um podcast.</Description>
       <Description>Uma comunidade.</Description>
       <Description>A nossa roda de conversa.</Description>
+
       <Separator />
+
       <CardContainer>
         <Card />
         <Card />
@@ -30,6 +32,7 @@ const Main: React.FC = () => {
       </Link>
 
       <Separator />
+
       <ImgEmail src={imgEmailFile} />
       <FormTitle>Vamos conversar?</FormTitle>
       <Form />
