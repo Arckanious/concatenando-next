@@ -8,18 +8,20 @@ export const Container = styled.div`
   font-size: 1.4rem;
   height: 11.2rem;
   justify-content: space-around;
-  margin: auto;
+  margin: 0 auto;
   max-width: 980px;
-  padding: 1.4rem;
+  width: 100%;
 `
 
 export const IconsContainer = styled.div`
+  cursor: pointer;
   display: flex;
   justify-content: space-around;
 `
 
 export const EmailText = styled.div`
   align-items: center;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -30,5 +32,6 @@ export const Icon = styled(FontAwesomeIcon)`
 `
 
 export const EmailIcon = styled(FontAwesomeIcon)`
+  cursor: pointer;
   margin-right: 0.6rem;
 `

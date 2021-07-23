@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Header from '../components/header'
 import Card from '../components/card'
 import { Main } from '../styles/pages/episodios'
 import CardLoading from '../components/cardLoading'
-import { useFetch } from '../hooks/episodesFetch'
+import PageInterface from './_pageInterface'
 
-const Episodios: React.FC = () => {
+const Episodios: React.FC<PageInterface> = (props: PageInterface) => {
+  const data = props.data
   const [backgroundColored, setBackgroundColored] = useState(false)
   useEffect(() => {
     function listener() {
@@ -19,22 +20,23 @@ const Episodios: React.FC = () => {
       window.removeEventListener('scroll', listener)
     }
   })
-  const { data } = useFetch('https://feeds.simplecast.com/DRWqL_a0')
 
   function renderEpisodes() {
     if (!data) {
       return (
-        <>
+        <Main>
           <CardLoading />
           <CardLoading />
           <CardLoading />
           <CardLoading />
-        </>
+          <CardLoading />
+          <CardLoading />
+        </Main>
       )
     }
 
     return (
-      <ul>
+      <Main>
         {data.map(data => (
           <Card
             title={data.title}
@@ -45,7 +47,7 @@ const Episodios: React.FC = () => {
             key={data.title}
           />
         ))}
-      </ul>
+      </Main>
     )
   }
 
@@ -54,8 +56,8 @@ const Episodios: React.FC = () => {
       <Head>
         <title>Episodios</title>
       </Head>
-      <Header backgroundColored={backgroundColored} />
-      <Main>{renderEpisodes()}</Main>
+      <Header page="Episodios" backgroundColored={backgroundColored} />
+      {renderEpisodes()}
     </>
   )
 }

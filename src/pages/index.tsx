@@ -4,8 +4,9 @@ import Banner from '../components/banner'
 import Main from '../components/main'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import PageInterface from './_pageInterface'
 
-const Home: React.FC = () => {
+const Home: React.FC<PageInterface> = (props: PageInterface) => {
   const [height, setHeight] = useState(0)
   const [backgroundColored, setBackgroundColored] = useState(false)
 
@@ -47,8 +48,8 @@ const Home: React.FC = () => {
       </Head>
 
       <Banner onClick={jumpBanner} />
-      <Header backgroundColored={backgroundColored} />
-      <Main />
+      <Header page="Home" backgroundColored={backgroundColored} />
+      <Main data={props.data} />
       <Footer />
     </>
   )

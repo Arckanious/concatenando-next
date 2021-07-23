@@ -2,16 +2,14 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Container = styled.div`
-  animation: is-pulsing 0.3s ease-in alternate infinite;
   background-color: rgba(15, 14, 14, 0.05);
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2.5rem;
-  max-width: 350px;
+  max-width: 100%;
   position: relative;
-  width: 100%;
+  width: 100vw;
 `
 
 export const ContainerText = styled.div`
@@ -19,16 +17,18 @@ export const ContainerText = styled.div`
 `
 
 export const Thumb = styled.div`
-  align-items: center;
   background-color: rgba(15, 14, 14, 0.2);
-  display: flex;
-  height: 200px;
-  justify-content: center;
+  padding-top: 56.25%;
+  position: relative;
   width: 100%;
 `
 export const Icon = styled(FontAwesomeIcon)`
   color: rgba(15, 14, 14, 0.1);
   font-size: 9.6rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
 export const CardTitle = styled.div`
   background-color: rgba(15, 14, 14, 0.2);

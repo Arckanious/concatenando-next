@@ -7,8 +7,15 @@ export const Main = styled.main`
   border-top-right-radius: 1.6rem;
   box-shadow: ${props => props.theme.shadows.shadowTopMd},
     ${props => props.theme.shadows.shadowMd};
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-gap: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: auto;
+  max-width: 980px;
   min-height: 100vh;
-  padding: 2rem 1.4rem;
+  padding: 1.4rem;
+  width: 100%;
+  @media (min-width: 800px) {
+    padding: 1.4rem 4.8rem;
+  } ;
 `

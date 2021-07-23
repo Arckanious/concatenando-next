@@ -8,6 +8,7 @@ import {
   ContainerText,
   Thumb
 } from './styles'
+import fallBackThumb from '../../assets/concatenandoLogo.jpg'
 
 interface CardProps {
   title: string
@@ -21,7 +22,7 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
   return (
     <Link href={props.episodeLink}>
       <Container>
-        <Thumb src={props.thumbLink} />
+        <Thumb src={props.thumbLink ? props.thumbLink : fallBackThumb} />
         <ContainerText>
           <CardTitle>{props.title}</CardTitle>
           <CardDescription>{props.description}</CardDescription>

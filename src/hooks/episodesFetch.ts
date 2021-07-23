@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import moment from 'moment'
 
-interface ItemInterface {
+export interface ItemInterface {
   title: string
   description: string
   date: string

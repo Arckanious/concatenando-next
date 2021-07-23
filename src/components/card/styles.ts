@@ -6,8 +6,7 @@ export const Container = styled.article`
   border-bottom-right-radius: 0.8rem;
   box-shadow: ${props => props.theme.shadows.shadowMd};
   color: ${props => props.theme.colors.black};
-  margin-bottom: 2.5rem;
-  max-width: 350px;
+  height: 100%;
 `
 
 export const ContainerText = styled.section`
@@ -15,6 +14,7 @@ export const ContainerText = styled.section`
 `
 
 export const Thumb = styled.img`
+  max-width: 300px;
   width: 100%;
 `
 
