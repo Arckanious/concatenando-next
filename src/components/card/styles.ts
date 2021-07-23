@@ -2,12 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.article`
   background-color: white;
-  max-width: 350px;
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
   box-shadow: ${props => props.theme.shadows.shadowMd};
-  margin-bottom: 2.5rem;
   color: ${props => props.theme.colors.black};
+  height: 100%;
 `
 
 export const ContainerText = styled.section`
@@ -15,6 +14,7 @@ export const ContainerText = styled.section`
 `
 
 export const Thumb = styled.img`
+  max-width: 300px;
   width: 100%;
 `
 
@@ -24,8 +24,8 @@ export const CardTitle = styled.h3`
 `
 
 export const CardDescription = styled.p`
-  margin-bottom: 1.2rem;
   line-height: 2rem;
+  margin-bottom: 1.2rem;
 `
 
 export const CardData = styled.p`

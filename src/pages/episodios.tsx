@@ -1,20 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Header from '../components/header'
-import Menu, { MenuHandles } from '../components/menu'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Card from '../components/card'
 import { Main } from '../styles/pages/episodios'
 import CardLoading from '../components/cardLoading'
+import PageInterface from '../interfaces/_pageInterface'
 
-const Episodios: React.FC = () => {
-  const menuRef = useRef<MenuHandles>(null)
+const Episodios: React.FC<PageInterface> = (props: PageInterface) => {
+  const data = props.data
   const [backgroundColored, setBackgroundColored] = useState(false)
-
-  function menuOpen() {
-    menuRef.current?.openMenu()
-  }
-
   useEffect(() => {
     function listener() {
       window.scrollY > 0
@@ -27,25 +21,43 @@ const Episodios: React.FC = () => {
     }
   })
 
+  function renderEpisodes() {
+    if (!data) {
+      return (
+        <Main>
+          <CardLoading />
+          <CardLoading />
+          <CardLoading />
+          <CardLoading />
+          <CardLoading />
+          <CardLoading />
+        </Main>
+      )
+    }
+
+    return (
+      <Main>
+        {data.map(data => (
+          <Card
+            title={data.title}
+            description={data.description}
+            date={data.date}
+            episodeLink={data.episodeLink}
+            thumbLink={data.thumbLink}
+            key={data.title}
+          />
+        ))}
+      </Main>
+    )
+  }
+
   return (
     <>
       <Head>
         <title>Episodios</title>
       </Head>
-      <Menu ref={menuRef} />
-      <Header
-        onClick={menuOpen}
-        menuIcon={faBars}
-        backgroundColored={backgroundColored}
-      />
-      <Main>
-        <Card />
-        <Card />
-        <Card />
-        <CardLoading />
-        <CardLoading />
-        <CardLoading />
-      </Main>
+      <Header page="Episodios" backgroundColored={backgroundColored} />
+      {renderEpisodes()}
     </>
   )
 }

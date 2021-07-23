@@ -2,16 +2,14 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Container = styled.div`
-  animation: is-pulsing 0.3s ease-in alternate infinite;
-  position: relative;
-  display: flex;
-  flex-direction: column;
   background-color: rgba(15, 14, 14, 0.05);
-  width: 100%;
-  max-width: 350px;
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
-  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  position: relative;
+  width: 100vw;
 `
 
 export const ContainerText = styled.div`
@@ -20,22 +18,24 @@ export const ContainerText = styled.div`
 
 export const Thumb = styled.div`
   background-color: rgba(15, 14, 14, 0.2);
+  padding-top: 56.25%;
+  position: relative;
   width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `
 export const Icon = styled(FontAwesomeIcon)`
   color: rgba(15, 14, 14, 0.1);
   font-size: 9.6rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
 export const CardTitle = styled.div`
   background-color: rgba(15, 14, 14, 0.2);
-  width: 60%;
-  height: 32px;
   font-size: 2.8rem;
+  height: 32px;
   margin-bottom: 1.6rem;
+  width: 60%;
 `
 
 interface CardDescriptionProps {
@@ -44,14 +44,14 @@ interface CardDescriptionProps {
 
 export const CardDescription = styled.div<CardDescriptionProps>`
   background-color: rgba(15, 14, 14, 0.2);
-  width: ${props => props.width};
   height: 12px;
   margin-bottom: 0.5rem;
+  width: ${props => props.width};
 `
 
 export const CardData = styled.div`
   background-color: rgba(15, 14, 14, 0.1);
-  width: 35%;
   height: 8px;
   margin-top: 1.4rem;
+  width: 35%;
 `

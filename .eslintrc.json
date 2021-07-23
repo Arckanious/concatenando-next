@@ -20,12 +20,17 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "better-styled-components"
     ],
     "rules": {
+      "better-styled-components/sort-declarations-alphabetically": 2,
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"],
       "prettier/prettier": "error",
       "space-before-function-paren": "off",
       "react/prop-types": "off",
-      "no-use-before-define": "off"
+      "indent": "off",
+      "multiline-ternary": "off"
     }
 }

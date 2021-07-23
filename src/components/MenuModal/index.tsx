@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react'
-import Link from 'next/link'
 import {
   Container,
   Icon,
@@ -7,12 +6,10 @@ import {
   IconImg,
   IconContainer,
   ListItemContainer,
-  ListItemContentContainer,
   List,
   MenuButton,
   MenuIcon,
-  ModalHeader,
-  Logo
+  ModalHeader
 } from './styles'
 import {
   faBars,
@@ -21,7 +18,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../footer'
 import { useRouter } from 'next/dist/client/router'
-import logoImg from '../../assets/icon.svg'
 
 interface ListElement {
   title: string
@@ -62,9 +58,6 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
       return (
         <Container>
           <ModalHeader>
-            <Link href="/">
-              <Logo onClick={closeMenu} src={logoImg} />
-            </Link>
             <MenuButton onClick={closeMenu}>
               <MenuIcon icon={faTimes} />
             </MenuButton>
@@ -73,8 +66,9 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
           <List>
             {props.elements.map((element, index) => {
               return (
-                <ListItemContainer key={element.title}>
-                  <ListItemContentContainer
+                <>
+                  <ListItemContainer
+                    key={element.title}
                     onClick={() =>
                       element.type === 'external'
                         ? goToLink(element.link)
@@ -89,9 +83,9 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
                       )}
                     </IconContainer>
                     {element.title}
-                  </ListItemContentContainer>
+                  </ListItemContainer>
                   {index < props.elements.length - 1 ? <Separator /> : null}
-                </ListItemContainer>
+                </>
               )
             })}
           </List>
@@ -106,9 +100,22 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
   return (
     <>
       {renderModal()}
-      <MenuButton onClick={openMenu}>
-        <MenuIcon icon={faBars} />
-      </MenuButton>
+      <List>
+        {props.elements.map((element, index) => {
+          return (
+            <>
+              <IconContainer>
+                {typeof element.icon === 'string' ? (
+                  <IconImg src={element.icon} />
+                ) : (
+                  <Icon icon={element.icon} />
+                )}
+              </IconContainer>
+              {element.title}
+            </>
+          )
+        })}
+      </List>
     </>
   )
 }
