@@ -12,7 +12,7 @@ import Button from '../button'
 import Card from '../card'
 import Form from '../form'
 import imgEmailFile from '../../assets/imgEmail.svg'
-import PageInterface from '../../pages/_pageInterface'
+import PageInterface from '../../interfaces/_pageInterface'
 import CardLoading from '../cardLoading'
 
 const Main: React.FC<PageInterface> = (props: PageInterface) => {

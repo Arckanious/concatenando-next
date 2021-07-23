@@ -4,7 +4,7 @@ import Header from '../components/header'
 import Card from '../components/card'
 import { Main } from '../styles/pages/episodios'
 import CardLoading from '../components/cardLoading'
-import PageInterface from './_pageInterface'
+import PageInterface from '../interfaces/_pageInterface'
 
 const Episodios: React.FC<PageInterface> = (props: PageInterface) => {
   const data = props.data

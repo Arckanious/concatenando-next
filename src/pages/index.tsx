@@ -4,7 +4,7 @@ import Banner from '../components/banner'
 import Main from '../components/main'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import PageInterface from './_pageInterface'
+import PageInterface from '../interfaces/_pageInterface'
 
 const Home: React.FC<PageInterface> = (props: PageInterface) => {
   const [height, setHeight] = useState(0)
