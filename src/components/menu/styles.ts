@@ -92,7 +92,7 @@ export const ListItemContainer = styled.div`
 `
 
 export const MenuIcon = styled(FontAwesomeIcon)`
-  color: black;
+  color: ${props => props.theme.colors.white};
   font-size: 2.4rem;
 `
 export const MenuButton = styled.button`

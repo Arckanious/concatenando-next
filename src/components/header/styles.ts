@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 export const Container = styled.div<ContainerProps>`
   background-color: ${props =>
-    props.backgroundColored ? props.theme.colors.white : 'transparent'};
+    props.backgroundColored ? props.theme.colors.primary : 'transparent'};
   box-shadow: ${props =>
     props.backgroundColored ? props.theme.shadows.shadowMd : 'none'};
   position: sticky;

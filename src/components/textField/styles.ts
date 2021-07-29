@@ -5,7 +5,6 @@ export interface TextFieldPlaceHolderProps {
 }
 
 export const Container = styled.div`
-  height: 5.6rem;
   position: relative;
   width: 100%;
 `
@@ -26,6 +25,7 @@ export const TextFieldInput = styled.input`
   border-top-right-radius: 0.4rem;
   font-size: 1.4rem;
   height: 100%;
+  height: 5.6rem;
   outline: none;
   padding-left: 1.4rem;
   width: 100%;
@@ -39,4 +39,10 @@ export const TextFieldInput = styled.input`
   &:focus {
     border-bottom: 2px solid ${props => props.theme.colors.primary};
   }
+`
+
+export const ErrorContainer = styled.div`
+  color: red;
+  font-size: 1.2rem;
+  height: 1.4rem;
 `
