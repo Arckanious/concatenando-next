@@ -29,6 +29,17 @@ export default styled.button<ButtonProps>`
   transition: 250ms;
   user-select: none;
   width: ${props => (props.full ? '100%' : 'auto')};
+  &:disabled {
+    cursor: default;
+    background-color: ${props => props.theme.colors.lightGray};
+
+    border-radius: ${props => (props.rounded ? '2.8rem' : '0.4rem')};
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
 
   &:hover {
     box-shadow: ${props => props.theme.shadows.shadowLg};

@@ -75,8 +75,10 @@ export const ListItemContentContainer = styled.div`
   border-radius: 0.4rem;
   cursor: pointer;
   display: flex;
+  font-weight: bold;
   max-width: 150px;
   padding: 1.2rem;
+  text-transform: uppercase;
   width: 50%;
 `
 
@@ -90,6 +92,7 @@ export const ListItemContainer = styled.div`
 `
 
 export const MenuIcon = styled(FontAwesomeIcon)`
+  color: black;
   font-size: 2.4rem;
 `
 export const MenuButton = styled.button`

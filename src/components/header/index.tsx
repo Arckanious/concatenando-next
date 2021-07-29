@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
         <Menu
           elements={[
             {
-              title: props.page === 'Home' ? 'Episódios' : 'Home',
+              title: props.page === 'Home' ? 'Episódios' : 'Início',
               link: props.page === 'Home' ? '/episodios' : '/',
               type: 'internal',
               icon: props.page === 'Home' ? faMicrophoneAlt : faHome
