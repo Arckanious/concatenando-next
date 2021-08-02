@@ -1,18 +1,13 @@
 import { useField } from '@unform/core'
-import React, { useRef, useState } from 'react'
-import {
-  Container,
-  ErrorContainer,
-  TextFieldInput,
-  TextFieldPlaceHolder
-} from './styles'
+import React, { useRef } from 'react'
+import { ErrorContainer, TextAreaContainer } from './styles'
 
-interface TextFieldProps {
+interface TextAreaProps {
   name: string
   placeholder: string
 }
 
-type InputProps = JSX.IntrinsicElements['input'] & TextFieldProps
+type InputProps = JSX.IntrinsicElements['input'] & TextAreaProps
 
 const TextField: React.FC<InputProps> = ({
   name,
@@ -20,7 +15,6 @@ const TextField: React.FC<InputProps> = ({
   ...rest
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [isEmpty, setIsEmpy] = useState(true)
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   React.useEffect(() => {
@@ -39,24 +33,17 @@ const TextField: React.FC<InputProps> = ({
     })
   }, [fieldName, registerField])
 
-  function onInputBlur() {
-    setIsEmpy(!inputRef.current?.value)
-  }
-
   return (
-    <Container>
-      <TextFieldInput
+    <>
+      <TextAreaContainer
+        placeholder={placeholder}
         id={fieldName}
         ref={inputRef}
-        onBlur={onInputBlur}
         defaultValue={defaultValue}
         {...rest}
-      ></TextFieldInput>
-      <TextFieldPlaceHolder isEmpty={isEmpty}>
-        {placeholder}
-      </TextFieldPlaceHolder>
+      />
       <ErrorContainer>{error}</ErrorContainer>
-    </Container>
+    </>
   )
 }
 

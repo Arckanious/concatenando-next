@@ -32,7 +32,7 @@ export function useFetch(url: string) {
       datinha.locale('pt-br')
       obj.date = datinha.format('ll') || ''
 
-      const episodeLink = item.querySelector('episodeLink')?.textContent
+      const episodeLink = item.querySelector('link')?.textContent
       obj.episodeLink = episodeLink || ''
 
       const thumbLink = item.querySelector('image')?.getAttribute('href')

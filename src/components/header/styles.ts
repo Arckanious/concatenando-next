@@ -8,7 +8,6 @@ export const Container = styled.div<ContainerProps>`
     props.backgroundColored ? props.theme.colors.primary : 'transparent'};
   box-shadow: ${props =>
     props.backgroundColored ? props.theme.shadows.shadowMd : 'none'};
-
   position: sticky;
   top: 0;
   transition: 350ms;
