@@ -44,11 +44,11 @@ const FormUnform: React.FC = () => {
       formRef.current?.reset()
       setSent(true)
     } catch (err) {
-      const validationErrors = {}
+      const validationErrors: { [id: string]: string } = {}
       if (err instanceof yup.ValidationError) {
         console.log(err)
         err.inner.forEach((error: yup.ValidationError) => {
-          validationErrors[error.path] = error.message
+          validationErrors[error.path || ''] = error.message
         })
         formRef.current?.setErrors(validationErrors)
       }
@@ -64,7 +64,7 @@ const FormUnform: React.FC = () => {
         </TextFieldContainer>
         <TextArea placeholder="Escreva sua mensagem" name="message" />
         <ButtonConainer>
-          <Button disabled={sent}> Enviar </Button>
+          <Button disabled={sent}> {sent ? 'Enviado' : 'Enviar'} </Button>
         </ButtonConainer>
       </Form>
     </FormerCointainer>
