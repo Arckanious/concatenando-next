@@ -7,14 +7,16 @@ interface TextAreaProps {
   placeholder: string
 }
 
-type InputProps = JSX.IntrinsicElements['input'] & TextAreaProps
+type InputProps = JSX.IntrinsicElements['textarea'] & TextAreaProps
 
 const TextField: React.FC<InputProps> = ({
   name,
   placeholder,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ref,
   ...rest
 }: InputProps) => {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   React.useEffect(() => {
