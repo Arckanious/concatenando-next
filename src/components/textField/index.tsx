@@ -17,6 +17,8 @@ type InputProps = JSX.IntrinsicElements['input'] & TextFieldProps
 const TextField: React.FC<InputProps> = ({
   name,
   placeholder,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ref,
   ...rest
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
